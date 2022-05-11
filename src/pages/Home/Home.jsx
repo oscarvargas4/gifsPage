@@ -1,6 +1,6 @@
 import './Home.css';
-import { Outlet, Link, useNavigate, Navigate } from "react-router-dom";
-import LionLogo from '../../components/LionLogo/LionLogo';
+import { Outlet, Link, useNavigate } from "react-router-dom";
+import LionLogo from '../../components/LionLogo/index';
 import { useState } from 'react';
 
 const mostUsedGifs = ['Rick', 'Morty', 'Lion', 'Matrix'];

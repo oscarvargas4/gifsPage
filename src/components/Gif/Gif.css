@@ -7,11 +7,10 @@
     flex-direction: column;
     margin: 16px;
     padding: 32px;
-    width: 100%;
 }
 
 .Gif h4 {
-    margin: 0;
+    margin: 6px;
 }
 
 .Gif img {
