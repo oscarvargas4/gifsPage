@@ -1,5 +1,6 @@
 img {
     aspect-ratio: 2490/2811;
     height: 20vh;
-    width: auto;    
+    width: auto;  
+    cursor: pointer;  
 }
