@@ -1,5 +1,5 @@
-const apiKey = 'D450FsDSGHnhLtRjif7gX0Zoxg02QAQ2&q';
-
+const apiKey = process.env.REACT_APP_GIPHYAPIKEY;
+console.log(apiKey)
 
 export default async function getGifs({ keyword = 'morty' }) {
   const apiURL = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}=${keyword}&limit=10&offset=0&rating=g&lang=en`;

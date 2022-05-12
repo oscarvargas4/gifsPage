@@ -1,25 +1,16 @@
 import ListOfGifs from '../../components/ListOfGifs/ListOfGifs';
 import { useParams } from 'react-router-dom';
-import { useState, useEffect } from 'react';
-import getGifs from '../../services/getGifs';
 import Loading from '../../components/Loading';
 import './Search.css';
 import LionLogo from '../../components/LionLogo';
+import { useGifs } from '../../hooks/useGifs';
 
 export default function Search() {
   let params = useParams();
   let keyword = params.keyword;
 
-  const [loading, setLoading] = useState(false);
-  const [gifs, setGifs] = useState([]);
+  const { loading, gifs } = useGifs({ keyword });
 
-  useEffect(() => {
-    setLoading(true);
-    getGifs({ keyword }).then(response => {
-      setGifs(response);
-      setLoading(false);
-    }).catch(e => console.log(e));
-  }, [keyword]);
 
   return (
     <div className='root'>
