@@ -1,14 +1,21 @@
 
 import LionLogo from '../../components/LionLogo/index';
-import './Gif.css';
+import './GifDetail.css';
 import { useParams } from 'react-router-dom';
+import useGlobalGifs from '../../hooks/useGlobalGifs';
 
-export default function Gif() {
+export default function GifDetail() {
   let params = useParams();
   let id = params.id || null;
+
+  const gifs = useGlobalGifs();
+  console.log({gifs});
+
+  // const gif = gifs.find(singleGif => singleGif.id === params.id);
   
+
   return (
-    <div className="root">
+    <div className="GifPageContainer">
       <section className="content">
         <LionLogo />
         {id

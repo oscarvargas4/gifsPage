@@ -1,22 +1,23 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import getGifs from "../services/getGifs";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import GifsContext from "../context/GifsContext";
 
 export function useGifs({ keyword } = { keyword: null }) {
   const [loading, setLoading] = useState(false);
-  const [gifs, setGifs] = useState([]);
+  const { gifs, setGifs } = useContext(GifsContext);
 
   useEffect(() => {
     setLoading(true);
 
     const keywordToUse = keyword || localStorage.getItem('lastKeyword') || 'coding';
 
-    getGifs({ keyword: keywordToUse }).then(response => {
-      setGifs(response);
+    getGifs({ keyword: keywordToUse }).then(gifs => {
+      setGifs(gifs);
       setLoading(false);
-      if(keyword) localStorage.setItem('lastKeyword', keyword);
+      localStorage.setItem('lastKeyword', keyword);
     }).catch(e => console.log(e));
-  }, [keyword]);
+  }, [keyword, setGifs]);
 
   return { loading, gifs }
 }

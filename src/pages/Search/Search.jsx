@@ -11,7 +11,6 @@ export default function Search() {
 
   const { loading, gifs } = useGifs({ keyword });
 
-
   return (
     <div className='root'>
       <LionLogo />

@@ -12,7 +12,7 @@ export default function Home() {
 
   const [keywordSearched, setKeywordSearched] = useState('');
 
-  const { loading, gifs } = useGifs();
+  const { gifs } = useGifs();
 
   const handleSubmit = (event) => {
     event.preventDefault();
